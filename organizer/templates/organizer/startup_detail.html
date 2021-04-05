@@ -1,0 +1,19 @@
+<article>
+
+    <h2>{{ startup.name }}</h2>
+    <dl>
+      <dt>Date Founded</dt>
+        <dd>{{ startup.founded_date }}</dd>
+      <dt>Website</dt>
+        <dd>{{ startup.website }}</dd>
+      <dt>Contact</dt>
+        <dd>{{ startup.contact</dd>
+
+      <dt>Tag{{ startup.tags.count|pluralize  }}</dt>
+        {% for tag in startup.tags.all %}
+          <dd><a href="">
+            {{ tag.name|title }}
+          </a></dd>
+        {% endfor %}
+    </dl>
+</article>
