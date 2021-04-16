@@ -1,3 +1,7 @@
+{% block title %}
+{{ block.super }} - {{ tag.name|title }}
+{% endblock %}
+
 <h2>{{ tag.name|title }}</h2>
 {% if tag.startup_set.all %}
   <section>

@@ -1,11 +1,20 @@
-<h2>Tag List</h2>
-<ul>
-  {% for tag in tag_list %}
-    <li>
-      <a href="">
-          {{ tag.name|title }}</a>
-    </li>
-  {% empty %}
-    <li><em>There are currently no Tags available.</em></li>
-  {% endfor %}
-</ul>
+{% extends parent_template|default:"organizer/base_organizer.html" %} <!-- This inherits the generic template-->
+
+
+{% block title %} <!-- Override the title block -->
+{{ block.super }} - Tag List <!-- Refer to what exists in the parent block -->
+{% endblock %} <!-- This whole block effectively look for the title block and replaces whatever it is in this section-->
+
+{%block content %}
+  <h2>Tag List</h2>
+  <ul>
+    {% for tag in tag_list %}
+      <li>
+        <a href="">
+            {{ tag.name|title }}</a>
+      </li>
+    {% empty %}
+      <li><em>There are currently no Tags available.</em></li>
+    {% endfor %}
+  </ul>
+{% endblock %}
