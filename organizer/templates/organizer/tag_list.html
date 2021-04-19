@@ -5,7 +5,7 @@
 {{ block.super }} - Tag List <!-- Refer to what exists in the parent block -->
 {% endblock %} <!-- This whole block effectively look for the title block and replaces whatever it is in this section-->
 
-{%block content %}
+{% block content %}
   <h2>Tag List</h2>
   <ul>
     {% for tag in tag_list %}
