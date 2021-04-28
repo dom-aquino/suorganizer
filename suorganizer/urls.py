@@ -15,11 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, re_path
+from django.conf.urls import include, url
 
-from organizer.views import homepage
+# Use an alias to prevent namespace conflict
+from organizer import urls as organizer_urls
+
+# urlpatterns = [
+#     path('admin/', admin.site.urls),
+#     re_path(r'^home/$', homepage),
+#     re_path(r'^tag/(?P<slug>[\w\-]+)/$', tag_detail),
+# ]
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    re_path(r'^home/$', homepage)
+    # url(r'^admin/', include(admin.site.urls)),
+    url(r'^', include(organizer_urls)),
 ]
 
