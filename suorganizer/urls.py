@@ -20,6 +20,8 @@ from django.conf.urls import include, url
 # Use an alias to prevent namespace conflict
 from organizer import urls as organizer_urls
 from blog import urls as blog_urls
+from blog.views import PostList
+from views import redirect_root
 
 # urlpatterns = [
 #     path('admin/', admin.site.urls),
@@ -29,6 +31,7 @@ from blog import urls as blog_urls
 
 urlpatterns = [
     # url(r'^admin/', include(admin.site.urls)),
+    url(r'^$', redirect_root),
     url(r'^', include(organizer_urls)),
     url(r'^blog/', include(blog_urls))
 ]

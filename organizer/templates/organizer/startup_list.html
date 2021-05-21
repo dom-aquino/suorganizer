@@ -1,15 +1,15 @@
-{% extends parent_template|default:"organizer/base_organizer.html %"}
+{% extends parent_template|default:"organizer/base_organizer.html" %}
 
 {% block title %}
 {{ block.super }} - Startups
-{{% endblock %}}
+{% endblock %}
 
 {% block content %} <!-- content is the name of the site-wide block -->
   <h2>Startup List</h2>
   <ul>
     {% for startup in startup_list %}
       <li>
-        <a href="">
+        <a href="{{ startup.get_absolute_url }}">
           {{ startup.name }}</a>
       </li>
     {% empty %}
