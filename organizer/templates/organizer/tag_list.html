@@ -1,9 +1,8 @@
 {% extends parent_template|default:"organizer/base_organizer.html" %} <!-- This inherits the generic template-->
 
-
-{% block title %} <!-- Override the title block -->
-{{ block.super }} - Tag List <!-- Refer to what exists in the parent block -->
-{% endblock %} <!-- This whole block effectively look for the title block and replaces whatever it is in this section-->
+{% block title %}
+{{ block.super }} - Tag List
+{% endblock %}
 
 {% block content %}
   <h2>Tag List</h2>
