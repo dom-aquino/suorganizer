@@ -1,2 +1,4 @@
 *.code-workspace
 *.sqlite3
+manage.py
+*.pyc
