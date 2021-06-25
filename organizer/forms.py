@@ -21,8 +21,8 @@ class TagForm(CleanSlugMixin, forms.ModelForm):
 
 class StartupForm(CleanSlugMixin, forms.ModelForm):
     class Meta:
-	model = Startup
-	fields = '__all__'
+	    model = Startup
+	    fields = '__all__'
 
 class NewsLinkForm(forms.ModelForm):
     class Meta:
@@ -31,8 +31,7 @@ class NewsLinkForm(forms.ModelForm):
 
 class CleanSlugMixin:
     def clean_slug(self):
-	new_slug = self.cleaned_data['slug'].lower()
-	if new_slug == 'create':
-	    raise ValidationError('Slug may not be "create"')
+ 	    new_slug = self.cleaned_data['slug'].lower()
+    	if new_slug == 'create':
+	        raise ValidationError('Slug may not be "create"')
         return new_slug
-
