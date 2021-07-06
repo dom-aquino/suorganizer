@@ -32,15 +32,10 @@ def tag_create(request):
         if form.is_valid():
             new_tag = form.save()
             return redirect(new_tag) 
-        else:
-            return render(
-                request, 
-                'organizer/tag_form.html',
-                {'form': form})
-    else:
+    else: # request.method != 'POST'
         form = TagForm()
-        return render(
-            request,
-            'organizer/tag_form.html',
-            {'form': form})    
+    return render(
+        request,
+        'organizer/tag_form.html',
+        {'form': form})    
 
