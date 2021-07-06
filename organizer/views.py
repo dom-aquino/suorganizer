@@ -1,7 +1,8 @@
 from django.http.response import HttpResponse, Http404
 from django.template import Context, loader
 from .models import Startup, Tag
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, redirect
+from .forms import TagForm
 
 def startup_list(request):
     return render(request,
@@ -24,3 +25,22 @@ def tag_detail(request, slug):
     return render(request,
                   'organizer/tag_detail.html',
                   {'tag': tag})
+
+def tag_create(request):
+    if request.method == 'POST':
+        form = TagForm(request.POST)
+        if form.is_valid():
+            new_tag = form.save()
+            return redirect(new_tag) 
+        else:
+            return render(
+                request, 
+                'organizer/tag_form.html',
+                {'form': form})
+    else:
+        form = TagForm()
+        return render(
+            request,
+            'organizer/tag_form.html',
+            {'form': form})    
+
